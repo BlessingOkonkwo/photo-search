@@ -51,7 +51,7 @@ The project queries Flickr's public facing API for image data. Flickr hosts a fa
 
 ## Technologies Used
 
-This project is created with:
+This project is created with (including 3rd Party Libraries):
 - bootstrap - version 5.2.0
     Bootstrap is a free and open-source CSS framework directed at responsive, mobile-first front-end web development. It contains HTML, CSS and JavaScript-based desig templates for typography, forms, buttons, navigation, and other interface components.
     In this project, bootstrap is used to style the positions of the page components using the bootstarp grid system. It is used to style the form, submit button and the photo gallery display arrangement in a responsive format. 
