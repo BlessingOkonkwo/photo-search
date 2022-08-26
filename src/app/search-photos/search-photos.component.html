@@ -1,0 +1,62 @@
+<div class="container">
+    <h1 class="text-center">Flickr Search</h1>
+    <form [formGroup]="imageSearchForm" (ngSubmit)="search(imageSearchForm.value)">
+        <div class="form-group input-group">
+            <input class="form-control" type="text" id="imageSearch" aria-describedby="imageKeyword"
+                placeholder="Search images" formControlName="imageKeyword" />
+            <div class="input-group-append">
+                <button type="submit" class="input-group-text btn btn-success btn-md "><i class="bi bi-search me-2"></i>Search for Images</button>
+            </div>
+        </div>
+        
+    </form>
+
+    <div class="d-flex justify-content-center" >
+        <div class="spinner-border" role="status" id="spinner-border">
+          <span class="sr-only" id="loading"></span>
+        </div>
+    </div>
+
+    <div class="row">
+        <ng-container *ngFor="let image of images">
+            <div class="col-sm-6 col-md-4 col-lg-3 p-1">
+                <div class="card">
+                    <a href="javascript:void(0)" (click)="show(image)">
+                        <img src="{{image.url}}_m.jpg" alt="" title="{{image.title}}">
+                    </a>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+
+    <div class="search-results" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50"
+        (scrolled)="onScroll()"></div>
+</div>
+
+<!-- Modal -->
+<div [style.display]="showModal ? 'block' : 'none'" class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-fullscreen">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"><b>Title: </b>{{imageInfo.title}}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="hide()"></button>
+        </div>
+        <div class="modal-body">    
+            <img class="img-fluid" src="{{imageInfo.url}}"
+            class="oneimg" id="imagepreview" >
+            <div>
+                <p class="info" *ngIf="imageInfo.username"><b>Author Username:</b> {{imageInfo.username}}</p>
+                <p class="info" *ngIf="imageInfo.realname"><b>Author Realname:</b> {{imageInfo.realname}}</p>
+                <p class="info" *ngIf="imageInfo.location"><b>Author Location:</b> {{imageInfo.location}}</p>
+                <p class="info" *ngIf="imageInfo.datePosted"><b>Date Posted: </b>{{imageInfo.datePosted}}</p>
+                <p class="info" *ngIf="imageInfo.dateTaken"><b>Date Taken: </b>{{imageInfo.dateTaken}}</p>
+            </div>
+            
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="hide()">Close</button>
+          <button type="button" class="btn btn-primary"><a href="{{imageInfo.url}}" style="color: white; text-decoration: none;">Flickr Image Link</a></button>
+        </div>
+      </div>
+    </div>
+</div>
