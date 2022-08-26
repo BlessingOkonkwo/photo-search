@@ -7,8 +7,6 @@ More information about Flickr API: https://www.flickr.com/services/api/
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.3. 
 
 
-> Live demo [_here_](https://www.example.com).
-
 ## Table of Contents
 * [Development server](#development-server)
 * [Code scaffolding](#code-scaffolding)
