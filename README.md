@@ -4,7 +4,9 @@ This is a simple Angular project that allows you lookup photos using the Flickr 
 
 More information about Flickr API: https://www.flickr.com/services/api/
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.3. 
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.3.
+
+> Live demo [_here_](https://flickr-photo-finder.netlify.app/).
 
 
 ## Table of Contents
@@ -16,7 +18,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 * [General Info](#general-information)
 * [Technologies Used](#technologies-used)
 * [Features](#features)
-* [Screenshots](#screenshots)
 * [Setup](#setup)
 * [Room for Improvement](#room-for-improvement)
 * [Further help](#further-help)
@@ -70,9 +71,9 @@ The ready features include:
 - Infinite scroll
 - Fullscreen modal display of image and its details on click
 
-## Screenshots
+<!-- ## Screenshots
 
-![Example screenshot](assets/images/image1.png)
+![Example screenshot](assets/images/image1.png)  -->
 
 ## Setup
 
@@ -112,13 +113,13 @@ To do:
 - I installed bootstrap to simplify the application styling and added the full path of the bootstrap css to the styles array in the angular.json file.
 - Ran ng serve to check that the app is compiling and running.
 - Ran ng generate to create the search-photos component where my view and page logic is built
+- Constructed the html template using bootstrap styling and reactive forms to collect user input
 - Created a service to connect to the Flickr API and added the necessary imports such as HTTPClient and HttpClientModule into the service and the app module
 - Went through the Flickr API documentation. I used flickr.photos.search API to return a list of photos matching the search criteria and I used the flickr.photos.getInfo API to return the details of a single image when it is clicked. I created a couple of interfaces and classes in order to be able to parse the output.
 - Created the functions in the service that calls the APIs and used the REST request format based on the API documentation.
 - Constructed photo url template for the output tags using the specified template from flickr documentation to be able to show the photos on the page.
 - Injected the Flickr service in the typescript file
 - Created the search fucntion that is invoked from the html input tag that will take the input keyword and invoke the service function with it.
-- Constructed the html template using bootstrap styling
 - Implemented the infinite scroll by installing and using the ngx-infinite scroll package after going through the documentation and how to use it. Imported the module in the app module file. Created a function that will call the flickr service and concatenate the results, inserted the template div in the component html, and updated the flickr service with a page parameter to load the next batch of photos. 
 - Created functions to display full image and details from the GetInfo API when the image is clicked and display the image and its details in a fullscreen scrollable modal
 - Lastly I applied some custom styling to the elements.
